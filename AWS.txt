@@ -1,0 +1,72 @@
+AWS
+---
+
+Create Virtual Machine(IAAS)
+search ec2 -> (resources)instances running -> launch instances -> 
+no. of instance 1, name of instance -> (ami)amazon linux -> (instance type)t2.micreo(free tier anything) ->
+(key pair)create new, rsa, name, .ppk file -> (network settings)default -> (storage)8gb -> launch
+
+in google >> putty.exe -> download putty -> alt binary files(64bit x86-putty.exe)
+
+_______________________________________________________________________________________________________________
+
+AWS -> instances -> select & open running one -> copy public ip address
+open putty.exe -> paste public ip in hostname -> port 22 -> sidebar connections -> public
+expand ssh, expand auth, credentials, browse for private file and open ppk file -> open -> Loginas: ec2-user -> linux commands can be used here
+or we can connect in instances by selecting instance and connect,connect (web based)
+
+instance -> security -> security groups -> inbound rules -> select & edit inbound rules -> source my ip -> save
+
+commands
+-------
+sudo su - superuser
+yum update
+yum install httpd
+systemctl start httpd
+systemctl enable httpd
+wget [link address]
+unzip filename.zip
+cd file
+mv * /var/www/html/
+cd /var/www/html/
+
+
+
+keywords:
+regions,availability zone, data center, server, IAAS, PAAS, SAAS, XAAS(XAnything as a Service)
+
+
+
+_______________________________________________________________________________________________________________________________________________________________________________
+
+
+
+DNS - Domain Name system
+Map ip address with name
+
+----
+route 53 > hosted zones > click on the hosted zone > create a record > record name > (record type) to ipv4 address > ip address value > create
+
+uptime.is > uptime and downtime with sla
+
+----
+S3> Simple Storage Service 
+Global Service -> S3, Router 53, WAF(Web Application Firewall)
+(bucket is specific to region)
+
+S3 > Create bucket > region > type general purpose > name (unique) > ACL Access Control List > uncheck Block Public Access > i acknowledge > create bucket
+
+----
+s3 > bucket > permissions tab > edit bucket policy > policy generator > 
+s3 bucket policy > effect allow > principal-(*)asterisk >actions- get object > ARN- (copy from bucket policy)/* > add statement > generate policy > copy paste in bucket policy
+
+objects tab > upload > add files > upload
+properties tab > static web hosting > edit > enable > index doc- index.html > save > link will be generated and can be loaded
+
+
+
+
+
+
+
+
